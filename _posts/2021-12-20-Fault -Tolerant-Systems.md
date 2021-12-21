@@ -34,3 +34,11 @@ For a faulty server, the general idea is to replicate the state machine and run 
 This idea is based on the assumption that if each replica starts with the same initial state and executes the same request in the same order, then each replica should produce the same result. Thus, if each machine is failing independently, then by combining the output of the state machine replicas, we can obtain the output for the fault-tolerant state machine.
 
 
+For faulty output devices and faulty clients, one possible strategy will always be acquiring more machines. And for a faulty client, we could also do defensive programming to prevent malicious clients.
+
+### Second paper: 
+[**The design of a practical system for fault-tolerant virtual machines.**](https://pdos.csail.mit.edu/6.824/papers/vm-ft.pdf)
+
+In this paper, the discussion are based on a fault-tolerant virtual machine implemented by the author.
+
+![_config.yml]({{ site.baseurl }}/images/Basic-FT-Config.png)
