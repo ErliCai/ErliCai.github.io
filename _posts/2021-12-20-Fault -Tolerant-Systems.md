@@ -39,6 +39,29 @@ For faulty output devices and faulty clients, one possible strategy will always 
 ### Second paper: 
 [**The design of a practical system for fault-tolerant virtual machines.**](https://pdos.csail.mit.edu/6.824/papers/vm-ft.pdf)
 
-In this paper, the discussion are based on a fault-tolerant virtual machine implemented by the author.
+In this paper, the discussion are based on a fault-tolerant virtual machine implemented by the author. It chooses a primary/backup approach. where a backup server is always available to take over if the primary server fails. 
 
 ![_config.yml]({{ site.baseurl }}/images/Basic-FT-Config.png)
+
+
+This paper also makes the assumption that the servers are deterministic state machines that can be kept in sync by starting from the same initial state and receiving the same input requests in the same order. On top of that, his paper also assumes that we only consider the fail-stop failure. There are several ways to achieve that, one would be shipping changes to all states of the primary to the backup, but this approach would take significant bandwidth. Therefore, the author chooses to pass only the log entries to the backup machine. 
+
+There are several challenges faced by this design, the primary challenge is that not all event that happens in a virtual machine is deterministic (e.g. virtual interrupts or reading the clock cycle). Extra design is needed to correctly capture all these non-determinisms. The second challenge is that when the primary machine is dead, the backup machine needs to consume all its log before it "come alive", which could take a very long time. The author chooses to let the primary machine wait for the backup when it's too far ahead.
+
+What lacks in this paper: Although the performance of this system is quite good, the extra design for backing up the system adds less than 10% overhead, we have to be aware that there are lots of restrictions on this system 1. it only works on the uni-processor machine. 2. there is no way to deal with Byzantine failure.
+
+### Third paper: 
+[**Practical byzantine fault tolerance**](https:/www.cs.cmu.edu/~15712/papers/castro99.pdf)
+
+This paper focus more on the hard stone in the area, the Byzantine failure. I can see a prototype for what is well-known Paxos algorithm (an algorithm that sovles the concensus problem) in this paper.
+
+In order to solve the byzantine failure, the system needs at least 3n+1 machines assuming n of them are faulty.
+
+
+
+
+
+
+
+
+
