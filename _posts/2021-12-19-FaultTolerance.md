@@ -12,5 +12,13 @@ title: 2021-12-19-FaultTolerance
 - Schneider, Fred B. "[Implementing fault-tolerant services using the state machine approach: A tutorial.](https://www.cs.cmu.edu/~15712/papers/schneider90.pdf)" ACM Computing Surveys (CSUR) 22.4 (1990): 299-319.
 
 
+### Overview
 
-asd
+With the growth of size and complexity of computer software, there are also an increasing number of software errors. Using a single machine to hold service is always good enough since the resulting service can only be as fault-tolerant as the processor executing that machine. A common way to tackle this problem is by introducing replicas of the primary machine that runs on separate processors and therefore fail independently.
+
+These three papers are all dedicated to implementing a fault-tolerant system. However, these papers have made different assumptions on types of failures, bandwidth, storage and output requirement, which leads to different design choices. We will have a closer look at these three papers and analyse their choices.
+
+
+
+
+First paper: **Implementing fault-tolerant services using the state machine approach: A tutorial.**
