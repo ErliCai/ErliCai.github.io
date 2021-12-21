@@ -63,7 +63,9 @@ When the primary, receives a client request, it starts a three-phase protocol to
 
 What lacks in this paper: This paper generally provide a good solution to the byzantine problem. The only problem is that it takes too many machines to achieve this guarantee and it lacks some availability.
 
+### Conclusion
 
+These three papers tried to tackle the different aspects of designing a fault-tolerant system. Some patterns we could observe from these designs are that, firstly, we would always need the help of replicas to provide fault tolerance. Secondly, the more assumption we made, the more efficient we can solve this problem. (we only need two machines if we assume that we only deal with fail-stop fault, whereas we will need 3n+1 machines if we release this assumption). Thirdly,  availability and fault-tolerance are actually the two sides of a coin. It is hard to have them both for a system.
 
 
 
