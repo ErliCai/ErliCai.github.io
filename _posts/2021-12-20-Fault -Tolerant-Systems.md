@@ -65,12 +65,7 @@ What lacks in this paper: This paper generally provide a good solution to the by
 
 ### Conclusion
 
-These three papers tried to tackle the different aspects of designing a fault-tolerant system. Some patterns we could observe from these designs are that, firstly, we would always need the help of replicas to provide fault tolerance. Secondly, the more assumption we made, the more efficient we can solve this problem. (we only need two machines if we assume that we only deal with fail-stop fault, whereas we will need 3n+1 machines if we release this assumption). Thirdly,  availability and fault-tolerance are actually the two sides of a coin. It is hard to have them both for a system.
-
-
-
-
-
+These three papers tried to tackle the different aspects of designing a fault-tolerant system. Some patterns we could observe from these designs are that, firstly, we would always need the help of replicas to provide fault tolerance, since using a single machine to hold service is always good enough since the resulting service can only be as fault-tolerant as the processor executing that machine. Secondly, the more assumption we made, the more efficient we can solve this problem. (we only need two machines if we assume that we only deal with fail-stop fault, whereas we will need 3n+1 machines if we release this assumption). Thirdly,  availability and fault-tolerance are actually the two sides of a coin. It is hard to have them both for a system.
 
 
 
