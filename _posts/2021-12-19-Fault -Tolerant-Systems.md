@@ -3,8 +3,6 @@ layout: post
 title: 2021-12-19-FaultTolerance
 ---
 
-# 2021-12-19-Fault Tolerance System Design
-
 #### Name: Erli Cai
 #### Papers: 
 - Castro, Miguel, and Barbara Liskov. "[Practical byzantine fault tolerance.](https:/www.cs.cmu.edu/~15712/papers/castro99.pdf)" OSDI. Vol. 99. No. 1999. 1999.
