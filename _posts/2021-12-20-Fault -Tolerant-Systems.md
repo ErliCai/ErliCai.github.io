@@ -53,9 +53,16 @@ What lacks in this paper: Although the performance of this system is quite good,
 ### Third paper: 
 [**Practical byzantine fault tolerance**](https:/www.cs.cmu.edu/~15712/papers/castro99.pdf)
 
-This paper focus more on the hard stone in the area, the Byzantine failure. I can see a prototype for what is well-known Paxos algorithm (an algorithm that sovles the concensus problem) in this paper.
+This paper focuses more on the hard stone in the area, the Byzantine failure. I can see a prototype for what is the well-known Paxos algorithm (an algorithm that solves the consensus problem) in this paper.
 
-In order to solve the byzantine failure, the system needs at least 3n+1 machines assuming n of them are faulty.
+To solve the byzantine failure, the system needs at least 3n+1 machines assuming n of them are faulty. This design does not rely on synchrony for safety and this makes it less vulnerable to malicious attacks. This design also offers a guarantee for liveness, which means clients eventually receive replies to their requests.
+
+When the primary, receives a client request, it starts a three-phase protocol to atomically multicast the request to the replicas. The three phases are pre-prepare, prepare, and commit. The pre-prepare and prepare phases are used to totally order requests even when the primary is faulty. 
+
+![_config.yml]({{ site.baseurl }}/images/byzantine.png)
+
+What lacks in this paper: This paper generally provide a good solution to the byzantine problem. The only problem is that it takes too many machines to achieve this guarantee and it lacks some availability.
+
 
 
 
